@@ -1,4 +1,4 @@
-package practicalWithAndrei;
+package practicalWithAndrei.homework1;
 
 public class CLI_Parameters {
     public static void main(String[] args) {
@@ -13,15 +13,6 @@ public class CLI_Parameters {
              System.out.println("Null");
          }
 
-         //third way
-        if(args.length>0){
-            System.out.println("The list of args: ");
-            for(String str : args) {
-                System.out.println(str);
-            }
-        }else{
-            System.out.println("No args");
-        }
 
     }
 }

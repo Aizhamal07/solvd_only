@@ -1,4 +1,4 @@
-package practicalWithAndrei;
+package practicalWithAndrei.homework1;
 
 
 import java.util.Arrays;
