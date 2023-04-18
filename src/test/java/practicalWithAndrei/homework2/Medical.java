@@ -22,7 +22,7 @@ public class Medical{
     }
 
     public void heal(){
-        System.out.println("heal the injured soldiers");
+        System.out.println(name+" is currently getting treatment.His current condition is "+severity);
     }
 
 }

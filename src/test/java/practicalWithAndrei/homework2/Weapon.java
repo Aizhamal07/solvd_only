@@ -6,9 +6,8 @@ public class Weapon {
 
     private String condition;
 
-    public Weapon(String name,String type,String condition){
+    public Weapon(String name,String condition){
         this.name=name;
-        this.type=type;
         this.condition=condition;
 
     }
