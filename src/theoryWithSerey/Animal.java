@@ -1,4 +1,4 @@
-package theoreticalWithSergey;
+package theoryWithSerey;
 
 public abstract class Animal {
     protected String name;

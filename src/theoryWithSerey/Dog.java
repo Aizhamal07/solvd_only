@@ -1,4 +1,4 @@
-package theoreticalWithSergey;
+package theoryWithSerey;
 
 public class Dog extends Animal {
 
