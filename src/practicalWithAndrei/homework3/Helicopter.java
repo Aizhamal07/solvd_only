@@ -1,7 +1,5 @@
 package practicalWithAndrei.homework3;
 
-import practicalWithAndrei.homework2.MilitaryEquipments;
-
 public final class Helicopter extends Expenses implements MilitaryEquipment {
 
     private String name;

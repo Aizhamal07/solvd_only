@@ -1,7 +1,5 @@
 package practicalWithAndrei.homework3;
 
-import practicalWithAndrei.homework2.Medical;
-
 public class MedicalTreatment extends Expenses {
 
     private String doctorName;
