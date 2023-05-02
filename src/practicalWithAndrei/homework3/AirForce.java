@@ -1,128 +1,69 @@
 package practicalWithAndrei.homework3;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
-public class AirForce extends Military implements MilitaryTraining{
+public class AirForce extends Military implements MilitaryForces{
+    private double airForceBudget;
 
     public static final String airForce="US Air Force";
-    private long totalBudget;
-    private String rank;
-    private String name;
 
-    private double trainingBudget;
+    public AirForce() {
 
-
-    private List<String> personnel = new ArrayList<String>();
-
-    public AirForce(String name,String rank,long totalBudget) {
-
-        super(name,rank,totalBudget);
+    }
+    public void setAirForceBudget(double airForceBudget) {
+        this.airForceBudget =airForceBudget;
+        allocateBudget((long) airForceBudget);
 
     }
 
-    public AirForce(double trainingBudget){
-        this.trainingBudget = trainingBudget;
+    public double getAirForceBudget() {
+        return airForceBudget;
     }
 
 
-    @Override
-    public long getTotalBudget() {
-        return totalBudget;
-    }
 
-    @Override
-    public void setTotalBudget(long totalBudget) {
-       this.totalBudget= totalBudget;
-    }
-
-    @Override
-    public String getRank() {
-        return rank;
-    }
-
-    @Override
-    public String getName() {
-        return name;
+    public void bombardment(){
+        System.out.println("Air Force is conducting a bombardment.");
     }
     @Override
-    public void addMilitaryPersonnel(String name, String rank) {
-        String personnelDetails = name + " - " + rank;
-        personnel.add(personnelDetails);
+    public void deploy() {
+        System.out.println("Deploying Air Force with planes.");
+
     }
     @Override
-    public void removeMilitaryPersonnel (String name, String rank) {
-        String personnelDetails = name + " - " + rank;
-        for (int i = 0; i < personnel.size(); i++) {
-            if (personnel.get(i).equals(personnelDetails)) {
-                personnel.remove(i);
-                break;
-            }
-        }
-    }
-    public List<String> getPersonList() {
-        return personnel;
-    }
+    public void retreat() {
+        System.out.println("Retreating Air Force.");
 
-    @Override
-    public void report() {
-            System.out.println("Total budget currently: "+totalBudget);
-    }
-
-    @Override
-    public void defend() {
-        System.out.println("Air Force is ready to defend our country!");
 
     }
-
-    @Override
-    public void doBasicTraining() {
-        System.out.println("Performing basic training");
-    }
-
-    @Override
-    public void doSpecializedTraining(String specialty) {
-        System.out.println("Performing specialized training for the AirForce in "+specialty);
-    }
-
-
     @Override
     public String toString() {
-        return "AirForce [totalBudget=" + totalBudget + ", rank=" + rank + ", name=" + name + "]";
+        return airForce+": {" +
+                "Air Force budget: $" + getAirForceBudget() +
+                "\nRemaining budget $" +getRemainingBudget(budget-airForceBudget)+
+                '}';
     }
-
-
-
+    @Override
     public int hashCode() {
         final int prime = 31;
-        int result = 1;
-
-        result = prime * result + (int) totalBudget;
-        result = prime * result + ((rank == null) ? 0 : rank.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        int result = super.hashCode();
+        long temp;
+        temp = Double.doubleToLongBits(airForceBudget);
+        result = prime * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
 
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            AirForce other = (AirForce) obj;
-            if (totalBudget != other.totalBudget)
-                return false;
-            if (rank == null) {
-                if (other.rank != null)
-                    return false;
-            } else if (!rank.equals(other.rank))
-                return false;
-            if (name == null) {
-                if (other.name != null)
-                    return false;
-            } else if (!name.equals(other.name))
-                return false;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
             return true;
-        }
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        AirForce other = (AirForce) obj;
+        if (airForceBudget != other.airForceBudget)
+            return false;
+        return true;
     }
+}

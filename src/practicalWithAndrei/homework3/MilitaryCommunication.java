@@ -1,7 +1,6 @@
 package practicalWithAndrei.homework3;
 
-public interface MilitaryCommunication {
-     void send(String message);
+public interface MilitaryCommunication{
+     String send();
      String receive();
-     boolean isSecure();
 }
