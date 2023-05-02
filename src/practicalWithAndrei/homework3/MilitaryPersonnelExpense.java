@@ -1,6 +1,6 @@
 package practicalWithAndrei.homework3;
 
-public class MilitaryPersonnelExpense extends Military implements  MilitaryExpenses {
+public class MilitaryPersonnelExpense implements  MilitaryExpenses {
     private double personnelCost;
     private int personnelCount;
     private double personnelBudget;
@@ -32,7 +32,7 @@ public class MilitaryPersonnelExpense extends Military implements  MilitaryExpen
 
     @Override
     public double calculateExpenses() {
-        return getRemainingBudget(budget-personnelBudget);
+        return Military.getRemainingBudget(Military.budget-personnelBudget);
     }
 
     public void updatePersonnelCount(int personnelCount) {
@@ -45,8 +45,8 @@ public class MilitaryPersonnelExpense extends Military implements  MilitaryExpen
 
     @Override
     public String toString() {
-        return "Personnel rank: " + name + " Personnel Budget: $" + personnelBudget +
-                "\nRemaining budget $" + getRemainingBudget(budget - personnelBudget) +
+        return "Personnel rank: " + Military.name + " Personnel Budget: $" + personnelBudget +
+                "\nRemaining budget $" + Military.getRemainingBudget(Military.budget - personnelBudget) +
                 '}';
     }
 }

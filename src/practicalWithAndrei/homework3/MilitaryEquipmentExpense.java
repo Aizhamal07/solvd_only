@@ -1,6 +1,8 @@
 package practicalWithAndrei.homework3;
 
-public class MilitaryEquipmentExpense extends Military implements MilitaryExpenses {
+import static practicalWithAndrei.homework3.Military.getRemainingBudget;
+
+public class MilitaryEquipmentExpense implements MilitaryExpenses {
 
     private double equipmentsCost;
     private int equipmentsCount;
@@ -37,15 +39,13 @@ public class MilitaryEquipmentExpense extends Military implements MilitaryExpens
 
     @Override
     public double calculateExpenses() {
-        return getRemainingBudget(budget-equipmentsBudget);
+        return getRemainingBudget(Military.budget-equipmentsBudget);
 
     }
-
-
     @Override
     public String toString() {
-        return "Equipment name: "+name+" Equipment's budget: $"+equipmentsBudget+
-                "\nRemaining budget $" + getRemainingBudget(budget-equipmentsBudget) +
+        return "Equipment name: "+Military.name+" \nEquipment's budget: $"+equipmentsBudget+
+                "\nRemaining budget $" + getRemainingBudget(Military.budget-equipmentsBudget) +
                 '}';
     }
 

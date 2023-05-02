@@ -2,7 +2,7 @@ package practicalWithAndrei.homework3;
 
 import java.util.Objects;
 
-public final class Drones extends Military implements MilitaryWeapons {
+public final class Drones implements MilitaryWeapons {
     private String name;
     private double cost;
     private int quantity;
@@ -19,18 +19,9 @@ public final class Drones extends Military implements MilitaryWeapons {
 
     }
 
-    public Drones(String name, double cost) {
-        this.name = name;
-        this.cost = cost;
-    }
-
-    public Drones(long totalBudget) {
-        this.totalBudget = totalBudget;
-    }
-
     @Override
     public String getName() {
-        System.out.println("Equipment is " + name);
+        System.out.println("Equipment name: " + name);
         return name;
     }
 
@@ -83,7 +74,7 @@ public final class Drones extends Military implements MilitaryWeapons {
 
     @Override
     public String toString() {
-        return "Drones{" +
+        return "Drones {" +
                 "cost=" + cost +
                 ", quantity=" + quantity +
                 ", functional=" + functional +

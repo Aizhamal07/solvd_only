@@ -1,6 +1,6 @@
 package practicalWithAndrei.homework3;
 
-public class Army extends Military implements MilitaryForces {
+public class Army implements MilitaryForces {
     private double armyBudget;
     public static final String army = "US Army";
 
@@ -10,7 +10,7 @@ public class Army extends Military implements MilitaryForces {
 
     public void setArmyBudget(double armyBudget) {
         this.armyBudget = armyBudget;
-        allocateBudget((long) armyBudget);
+        Military.allocateBudget((long) armyBudget);
     }
 
     public double getArmyBudget() {
@@ -35,7 +35,7 @@ public class Army extends Military implements MilitaryForces {
     public String toString() {
         return army + ": {" +
                 "Army budget: $" + getArmyBudget() +
-                "\nRemaining budget $" + getRemainingBudget(budget-armyBudget) +
+                "\nRemaining budget $" + Military.getRemainingBudget(Military.budget-armyBudget) +
                 '}';
     }
 

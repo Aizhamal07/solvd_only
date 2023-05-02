@@ -2,17 +2,18 @@ package practicalWithAndrei.homework3;
 
 import java.util.Objects;
 
-public class AirForce extends Military implements MilitaryForces{
+public class AirForce implements MilitaryForces {
     private double airForceBudget;
 
-    public static final String airForce="US Air Force";
+    public static final String airForce = "US Air Force";
 
     public AirForce() {
 
     }
+
     public void setAirForceBudget(double airForceBudget) {
-        this.airForceBudget =airForceBudget;
-        allocateBudget((long) airForceBudget);
+        this.airForceBudget = airForceBudget;
+        Military.allocateBudget((long) airForceBudget);
 
     }
 
@@ -20,29 +21,49 @@ public class AirForce extends Military implements MilitaryForces{
         return airForceBudget;
     }
 
-
-
-    public void bombardment(){
+    public void bombardment() {
         System.out.println("Air Force is conducting a bombardment.");
     }
+
     @Override
     public void deploy() {
         System.out.println("Deploying Air Force with planes.");
 
     }
+
     @Override
     public void retreat() {
         System.out.println("Retreating Air Force.");
 
 
     }
+
     @Override
     public String toString() {
-        return airForce+": {" +
+        return airForce + ": {" +
                 "Air Force budget: $" + getAirForceBudget() +
-                "\nRemaining budget $" +getRemainingBudget(budget-airForceBudget)+
+                "\nRemaining budget $" + Military.getRemainingBudget(Military.budget - airForceBudget) +
                 '}';
     }
+    @Override
+    public boolean equals(Object obj) {
+        System.out.println("Calling equals method...");
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        AirForce other = (AirForce) obj;
+        System.out.println("Comparing airForceBudget...");
+        if (airForceBudget != other.airForceBudget) {
+            System.out.println("airForceBudget is not equal");
+            return false;
+        }
+        System.out.println("airForceBudget is equal");
+        return true;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -53,17 +74,4 @@ public class AirForce extends Military implements MilitaryForces{
         return result;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (!super.equals(obj))
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        AirForce other = (AirForce) obj;
-        if (airForceBudget != other.airForceBudget)
-            return false;
-        return true;
-    }
 }

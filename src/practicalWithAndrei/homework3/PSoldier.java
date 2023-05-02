@@ -2,7 +2,7 @@ package practicalWithAndrei.homework3;
 
 import java.util.ArrayList;
 
-public class PSoldier extends Military implements MilitaryPersonnel {
+public class PSoldier implements MilitaryPersonnel {
 
     private String name;
     private String rank;

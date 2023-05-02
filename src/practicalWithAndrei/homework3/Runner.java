@@ -4,42 +4,35 @@ public class Runner {
 
     public static void main(String[] args) {
 
-        MorseCode morseCode = new MorseCode();
-        morseCode.setMorseCodeMsg("Kuba");
-        morseCode.getMorseCodeMsg();
-        morseCode.receive();
-
-        System.out.println("==============================");
-
-
         AirForce airForce = new AirForce();
-        airForce.bombardment();
-        airForce.deploy();
-        airForce.retreat();
         airForce.setAirForceBudget(185000000000L);
         airForce.getAirForceBudget();
         System.out.println(airForce.toString());
         System.out.println(airForce.hashCode());
+        airForce.bombardment();
+        airForce.deploy();
+        airForce.retreat();
 
         AirForce airForce2 = new AirForce();
-        airForce2.setAirForceBudget(175000000000L);
+        airForce2.setAirForceBudget(185000000000L);
         airForce2.getAirForceBudget();
-        System.out.println(airForce2.equals(airForce));
+        System.out.println(airForce.equals(airForce2));
+
 
 
         System.out.println("-----------------------------");
 
         Army army = new Army();
-        army.ambush();
-        army.deploy();
-        army.retreat();
         army.setArmyBudget(177000000000L);
         army.getArmyBudget();
         System.out.println(army.toString());
         System.out.println(army.hashCode());
+        army.ambush();
+        army.deploy();
+        army.retreat();
 
         Army army2 = new Army();
-        army2.setArmyBudget(177000000000L);
+        army2.setArmyBudget(176000000000L);
         System.out.println(army2.equals(army));
 
         System.out.println("=================================");
@@ -101,5 +94,13 @@ public class Runner {
         } catch (InvalidDecisionException e) {
             System.out.println("Invalid decision: " + e.getMessage());
         }
+
+        System.out.println("============================");
+        MorseCode morseCode = new MorseCode();
+        morseCode.setMorseCodeMsg("Attack");
+        morseCode.getMorseCodeMsg();
+        morseCode.receive();
+
+        System.out.println("==============================");
     }
 }
