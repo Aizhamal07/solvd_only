@@ -31,13 +31,13 @@ public class AirForce implements MilitaryForces {
 
     @Override
     public void deploy() {
-        System.out.println("Deploying Air Force with planes.");
+        logger.info("Deploying Air Force with planes.");
 
     }
 
     @Override
     public void retreat() {
-        System.out.println("Retreating Air Force.");
+        logger.info("Retreating Air Force.");
 
 
     }
@@ -59,12 +59,12 @@ public class AirForce implements MilitaryForces {
         if (getClass() != obj.getClass())
             return false;
         AirForce other = (AirForce) obj;
-        System.out.println("Comparing airForceBudget...");
+        logger.info("Comparing airForceBudget...");
         if (airForceBudget != other.airForceBudget) {
-            System.out.println("airForceBudget is not equal");
+            logger.info("airForceBudget is not equal");
             return false;
         }
-        System.out.println("airForceBudget is equal");
+        logger.info("airForceBudget is equal");
         return true;
     }
 
