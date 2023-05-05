@@ -1,15 +1,16 @@
-package practicalWithAndrei.homework3;
+package Homeworks;
 
-import java.util.ArrayList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class POfficer implements MilitaryPersonnel {
-
+public class Officer implements MilitaryPersonnel {
+    private static final Logger logger = LogManager.getLogger(Officer.class);
     private String name;
     private String rank;
 
     private double compensation;
 
-    public POfficer(String name, String rank) {
+    public Officer(String name, String rank) {
         this.name = name;
         this.rank = rank;
 
@@ -21,24 +22,27 @@ public class POfficer implements MilitaryPersonnel {
 
 
     public final void giveOrders() {
-        System.out.println(rank + " " + name + " is giving the order!");
+        logger.info(rank + " " + name + " is giving the order!");
     }
 
     public final String makeDecisions(String decision) throws InvalidDecisionException {
         if (decision.equals("Attack")) {
-            System.out.println("We will launch an attack.");
+            logger.info("We will launch an attack.");
         } else if (decision.equals("Retreat")) {
-            System.out.println("We will retreat.");
+            logger.info("We will retreat.");
         } else {
-            System.out.println("Invalid decision.");
+            logger.info("Invalid decision.");
         }
         return decision;
     }
 
-    public POfficer(String name, String rank, double compensation) {
+    public Officer(String name, String rank, double compensation) {
         this.name = name;
         this.rank = rank;
         this.compensation = compensation;
+    }
+    public Officer(){
+
     }
 
     public String getName() {
@@ -56,4 +60,6 @@ public class POfficer implements MilitaryPersonnel {
     public double getCompensation() {
         return compensation;
     }
+
+
 }
